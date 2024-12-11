@@ -64,7 +64,29 @@ void showBorder(int n,int m,int arr[100][100]){
 		printf("\n");
 }
 //
-void showPrime(int n,int m,int arr[100][100]){
+int check(int number){
+	if (number < 2) {
+		return 0; 
+	}
+    for (int i = 2;i*i<=number;i++){ 
+        if (number%i==0){
+        	return 0;
+		}
+    }
+    return 1;
+}
+void showPrime(int arr[100][100]){
+	for (int i=0;i<3;i++){
+		for (int j=0;j<3;j++){
+			if(check(arr[i][j])){
+				printf("%d ",arr[i][j]);
+				if(arr[i][j]==3){
+			        printf("\n");
+		        }
+			}
+		}
+	}
+	printf("\n");
 }
 int main(){
 	int n,m,choose;
@@ -104,7 +126,7 @@ int main(){
 				}
 				break;
 			case 6:
-				showPrime(n,m,arr);
+				showPrime(arr);
 				break;
 			case 7:
 				printf("ket thuc chuong trinh");
